@@ -76,7 +76,11 @@ public class Main {
                     if (sub.equalsIgnoreCase("a")) {
                         customers.showAll();
                     } else if (sub.equalsIgnoreCase("b")) {
+<<<<<<< HEAD
                         orders.showAll();
+=======
+                        orders.showAll(menus);
+>>>>>>> ab7b6ce (Update 2)
                     } else {
                         System.out.println("Invalid Option");
                     }

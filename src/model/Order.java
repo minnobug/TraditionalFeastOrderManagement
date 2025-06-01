@@ -23,7 +23,11 @@ public class Order implements Serializable {
     public Order() {
     }
 
+<<<<<<< HEAD
     public Order(String orderCode, String customerId, String province, String menuID, int numOfTablesl, Date eventDate) {
+=======
+    public Order(String orderCode, String customerId, String province, String menuId, int numOfTables, Date eventDate) {
+>>>>>>> ab7b6ce (Update 2)
         this.orderCode = orderCode;
         this.customerId = customerId;
         this.province = province;
@@ -56,11 +60,19 @@ public class Order implements Serializable {
         this.province = province;
     }
 
+<<<<<<< HEAD
     public String getMenuID() {
         return menuId;
     }
 
     public void setMenuID(String menuID) {
+=======
+    public String getMenuId() {
+        return menuId;
+    }
+
+    public void setMenuId(String menuID) {
+>>>>>>> ab7b6ce (Update 2)
         this.menuId = menuID;
     }
 

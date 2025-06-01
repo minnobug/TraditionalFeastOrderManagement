@@ -20,13 +20,21 @@ import java.util.List;
 
 public class Orders extends ArrayList<Order> {
     private final String pathFile = "orders.dat";
+<<<<<<< HEAD
     private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
+=======
+    private final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+>>>>>>> ab7b6ce (Update 2)
 
     public void addOrder(Customers customers, SetMenus menus) {
         String orderCode;
         while (true) {
+<<<<<<< HEAD
             orderCode = Inputter.getString("Enter Order Code (e.g. O001): ").toUpperCase();
+=======
+            orderCode = Inputter.getString("Enter Order Code: ").toUpperCase();
+>>>>>>> ab7b6ce (Update 2)
             if (searchById(orderCode) == null) break;
             System.out.println("Order Code already exists.");
         }
@@ -53,7 +61,11 @@ public class Orders extends ArrayList<Order> {
         while (true) {
             String dateInput = Inputter.getString("Enter event date (yyyy-MM-dd): ");
             try {
+<<<<<<< HEAD
                 eventDate = sdf.parse(dateInput);
+=======
+                eventDate = new SimpleDateFormat("yyyy-MM-dd").parse(dateInput);
+>>>>>>> ab7b6ce (Update 2)
                 break;
             } catch (ParseException e) {
                 System.out.println("Invalid date format. Try again.");
@@ -64,7 +76,10 @@ public class Orders extends ArrayList<Order> {
         System.out.println("Order placed successfully.");
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ab7b6ce (Update 2)
     public void updateOrder(SetMenus menus) {
         String id = Inputter.getString("Enter Order Code to update: ").toUpperCase();
         Order o = searchById(id);
@@ -79,7 +94,11 @@ public class Orders extends ArrayList<Order> {
         while (true) {
             String dateInput = Inputter.getString("Enter new event date (yyyy-MM-dd): ");
             try {
+<<<<<<< HEAD
                 newDate = sdf.parse(dateInput);
+=======
+                newDate = new SimpleDateFormat("yyyy-MM-dd").parse(dateInput);
+>>>>>>> ab7b6ce (Update 2)
                 break;
             } catch (ParseException e) {
                 System.out.println("Invalid date format. Try again.");
@@ -91,6 +110,7 @@ public class Orders extends ArrayList<Order> {
         System.out.println("Order updated.");
     }
 
+<<<<<<< HEAD
     public void showAll() {
         if (this.isEmpty()) {
             System.out.println("No orders available.");
@@ -100,6 +120,30 @@ public class Orders extends ArrayList<Order> {
         for (Order o : this) {
             System.out.println(o);
         }
+=======
+    public void showAll(SetMenus menus) {
+        if (this.isEmpty()) {
+            System.out.println("No data in the system.");
+            return;
+        }
+
+        System.out.println("---------------------------------------------------------------------------");
+        System.out.println(" ID   | Event date |Customer ID| Set Menu |    Price    |Tables|  Cost");
+        System.out.println("---------------------------------------------------------------------------");
+
+        for (Order o : this) {
+            String menuId = o.getMenuId();
+            double price = 0;
+            if (menus != null && menus.containsKey(menuId)) {
+                price = menus.get(menuId).getPrice();
+            }
+            double cost = price * o.getNumOfTables();
+            System.out.printf("%-7s| %-11s| %-11s| %-9s| %,8.0f| %4d| %,7.0f\n",
+                    o.getOrderCode(), sdf.format(o.getEventDate()), o.getCustomerId(),
+                    menuId, price, o.getNumOfTables(), cost);
+        }
+        System.out.println("---------------------------------------------------------------------------");
+>>>>>>> ab7b6ce (Update 2)
     }
 
     public Order searchById(String id) {
@@ -121,4 +165,8 @@ public class Orders extends ArrayList<Order> {
             this.addAll(data);
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ab7b6ce (Update 2)
